@@ -1,4 +1,5 @@
 const { Thoughts, Reactions, User } = require('../models/');
+const { db } = require('../models/user');
 
 module.exports = {
 
@@ -24,17 +25,29 @@ module.exports = {
     // POST to create a new thought(don't forget to push the created thought's _id to the associated user's thoughts array field)
     createThoughts(req, res){
         Thoughts.create(req.body)
-            .then((thoughts)=> res.json(thoughts))
+            .then((thoughts)=> {
+                // user.thoughts.push(req.body.id)
+                res.json(thoughts)
+            })
             .catch((err)=> {
                 console.log(err);
                 return res.status(500).json(err);
             })
-    }
+    },
 
 
     // PUT to update a thought by its _id
 
     // DELETE to remove a thought by its _id
+    deleteThoughts(req, res){
+        Thoughts.findByIdAndDelete({id: req.params.courseId})
+            .then((thoughts)=>{
+                !thoughts
+                ? res.status(404).json({ message: 'No thought with that ID'})
+                : res.json({ message: 'Thought Deleted!'})
+            })
+            .catch((err)=> res.status(500).json(err));
+    },
 
 // /api/thoughts/:thoughtId/reactions
 
