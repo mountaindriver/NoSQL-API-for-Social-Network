@@ -14,7 +14,7 @@ router
 
 // /api/thoughts/:thoughtsId
 router
-.rought('/:thoughtId')
+.route('/:thoughtId')
 .get(getSingleThoughts)
 
 
