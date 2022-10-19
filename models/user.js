@@ -1,13 +1,13 @@
 const { Schema, model } = require('mongoose');
 
-
+// Schema to create a User model
 const userSchema = new Schema(
     {
         username: {
             type: String,
             required: true,
             // unique: true,
-            // trimmed: true,
+            trimmed: true,
         },
         email: {
             type: String,
@@ -20,8 +20,12 @@ const userSchema = new Schema(
         }
     },
     {
-        // toJSON
+        toJSON: {
+            virtual: true,
+        },
     }
-)
+);
 
-module.exports = userSchema;
+const User = model('user', userSchema);
+
+module.exports = User;

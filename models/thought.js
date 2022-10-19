@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-
+// Schema to create a Thought model
 const thoughtSchema = new Schema(
     {
         thoughtText: {
@@ -11,7 +11,7 @@ const thoughtSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            // set to current time stamp
+            default: Date.now(),
         },
         username: {
             type: String,
@@ -23,8 +23,12 @@ const thoughtSchema = new Schema(
         }
     },
     {
-        // toJSON:
+        toJSON: {
+            virtuals: true,
+        },
     }
-)
+);
 
-module.exports = thoughtSchema;
+const Thought =  model("thought", thoughtSchema);
+
+module.exports = Thought;
