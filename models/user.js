@@ -15,9 +15,12 @@ const userSchema = new Schema(
             // unique: true,
             // must match valid email
         },
-        thoughts: {
-
-        }
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'THOUGHTS'
+            }
+        ]
     },
     {
         toJSON: {

@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 // Schema to create a Thought model
-const thoughtSchema = new Schema(
+const thoughtsSchema = new Schema(
     {
-        thoughtText: {
+        thoughtsText: {
             type: String,
             required: true,
             maxlength: 280,
@@ -18,9 +18,12 @@ const thoughtSchema = new Schema(
             required: true,
             // connect to user that created thought
         },
-        reactions: {
-            // type: array?
-        }
+        reactions: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'REACTIONS',
+            },
+        ]
     },
     {
         toJSON: {
@@ -29,6 +32,6 @@ const thoughtSchema = new Schema(
     }
 );
 
-const Thought =  model("thought", thoughtSchema);
+const Thoughts =  model("THOUGHTS", thoughtsSchema);
 
-module.exports = Thought;
+module.exports = Thoughts;
