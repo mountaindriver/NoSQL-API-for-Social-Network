@@ -2,7 +2,7 @@ const { Thoughts, Reactions, User } = require('../models/');
 
 
 module.exports = {
-    // /api/users 
+// /api/users 
 
     // GET all users
     getUsers(req, res) {
@@ -12,13 +12,13 @@ module.exports = {
     },
 
     // POST a new user
-    createUser(req, res){
+    createUser(req, res) {
         User.create(req.body)
-        .then((user)=> res.json(user))
-        .catch((err)=> res.status(500).json(err));
+            .then((user) => res.json(user))
+            .catch((err) => res.status(500).json(err));
     },
 
-    // /api/users/:_id
+ // /api/users/:_id
 
     // GET a single user by its _id and populated thought and friend data
     getSingleUser(req, res) {
@@ -45,9 +45,7 @@ module.exports = {
         // BONUS remove user's associated thoughts when deleted
     },
 
-
-
-    // /api/users/:userId/friends/:friendId
+// /api/users/:userId/friends/:friendId
 
     // POST to add new friend to a user's friend list
     addNewFriend(req, res) {

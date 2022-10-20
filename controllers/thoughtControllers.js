@@ -2,8 +2,7 @@ const { Thoughts, Reactions, User } = require('../models/');
 const { db } = require('../models/user');
 
 module.exports = {
-
-    // api/thoughts
+ // api/thoughts
 
     // GET to get all thoughts
     getThoughts(req, res) {
@@ -15,17 +14,7 @@ module.exports = {
             });
     },
 
-    // GET to get a single thought by its _id
-    getSingleThoughts(req, res) {
-        Thoughts.findOne({ _id: req.params.thoughtId })
-            .then((thoughts) => {
-                !thoughts
-                    ? res.status(404).json({ message: 'No Thoughts found' })
-                    : res.json(thoughts)
-            })
-            .catch((err) => res.status(500).json(err));
-    },
-
+    
     // POST to create a new thought
     createThoughts(req, res) {
         Thoughts.create(req.body)
@@ -38,6 +27,19 @@ module.exports = {
                 console.err({ message: err });
                 return res.status(500).json(err);
             })
+        },
+
+ // api/thoughts/:thoughtsid
+        
+    // GET to get a single thought by its _id
+    getSingleThoughts(req, res) {
+        Thoughts.findOne({ _id: req.params.thoughtId })
+            .then((thoughts) => {
+                !thoughts
+                    ? res.status(404).json({ message: 'No Thoughts found' })
+                    : res.json(thoughts)
+            })
+            .catch((err) => res.status(500).json(err));
     },
 
     // PUT to update a thought by its _id
@@ -65,7 +67,7 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
 
-    // /api/thoughts/:thoughtId/reactions
+// /api/thoughts/:thoughtId/reactions
 
     // POST to create a reaction stored in a single thought's reactions array field
     createReaction(req, res) {
