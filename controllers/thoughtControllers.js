@@ -7,7 +7,11 @@ module.exports = {
     // GET to get all thoughts
     getThoughts(req, res) {
         Thoughts.find()
-            .then((thoughts) => res.json(thoughts))
+            .then((thoughts) => {
+                !thoughts
+                ? res.json({message: "No thoughts"})
+                :res.json(thoughts)
+            })
             .catch((err) => {
                 console.err({ message: err });
                 return res.status(500).json(err);

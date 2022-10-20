@@ -32,10 +32,10 @@ const userSchema = new Schema(
 
 const User = model('user', userSchema);
 
-User.create([
-    {username: 'lucas', email: 'lucas@lucas.com'},
-    {username: 'josh', email: 'josh@josh.com'},
-    {username: 'yesman', email: 'yes@man.com'},
-]);
+// User.create([
+//     {username: 'lucas', email: 'lucas@lucas.com'},
+//     {username: 'josh', email: 'josh@josh.com'},
+//     {username: 'yesman', email: 'yes@man.com'},
+// ]);
 
 module.exports = User;

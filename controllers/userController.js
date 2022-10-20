@@ -18,28 +18,32 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
 
- // /api/users/:_id
+ // /api/users/:userid
 
-    // GET a single user by its _id and populated thought and friend data
+    // GET a single user by its userid and populated thought and friend data
     getSingleUser(req, res) {
-        User.findOne({ _id: req.params._id })
-            .then((user) => res.json(user))
-            .catch((err) => res.status(500))
+        User.findOne({ _id: req.params.userid })
+            .then((user) => {
+                res.json(user)
+            })
+            .catch((err) => res.status(500).json(err))
     },
 
-    // PUT to update a user by its _id
+// ????
+    // PUT to update a user by its userid
     updateUser(req, res) {
-        User.findByIdAndUpdate({ _id: req.params._id })
+        User.findByIdAndUpdate({ _id: req.params.userid })
             .then((user) => res.json(user))
             .catch((err) => res.json(err))
     },
 
-    // DELETE to reomve user by its _id
+    // DELETE to remove user by its userid
     deleteUser(req, res) {
-        User.findByIdAndDelete({ _id: req.params._id })
+        User.findByIdAndDelete({ _id: req.params.userid })
             .then((user) => {
-                console.log("User Deleted")
-                res.json(user)
+                !user
+                ? res.status(404).json({ message: "No User with that id Found"})
+                :res.json({message: "User Deleted!"})
             })
             .catch((err) => res.json(err))
         // BONUS remove user's associated thoughts when deleted
@@ -56,4 +60,9 @@ module.exports = {
     removeFriend(req, res) {
 
     },
+
+    deleteAllUser(req, res){
+        User.deleteMany()
+        .then(()=> res.json({message: "deleted all users"}))
+    }
 }
