@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-
+const reactionsSchema = require('./reactions')
 // Schema to create a Thought model
 const thoughtsSchema = new Schema(
     {
@@ -18,20 +18,10 @@ const thoughtsSchema = new Schema(
             required: true,
             // connect to user that created thought
         },
-        reactions: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'REACTIONS',
-            },
-        ]
+        reactions: [ reactionsSchema ]
     },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-    }
 );
 
-const Thoughts =  model("THOUGHTS", thoughtsSchema);
+const Thoughts =  model("thoughts", thoughtsSchema);
 
 module.exports = Thoughts;
