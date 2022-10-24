@@ -1,3 +1,4 @@
+const { trusted } = require('mongoose');
 const { Thoughts, Reactions, User } = require('../models/');
 
 
@@ -29,7 +30,6 @@ module.exports = {
             .catch((err) => res.status(500).json(err))
     },
 
-// ????
     // PUT to update a user by its userid
     updateUser(req, res) {
         User.findByIdAndUpdate({ _id: req.params.userid })
@@ -39,20 +39,27 @@ module.exports = {
 
     // DELETE to remove user by its userid
     deleteUser(req, res) {
-        User.findByIdAndDelete({ _id: req.params.userid })
-            .then((user) => {
-                !user
+        User.findOneAndRemove({ _id: req.params.userid })
+        .then((user) => {
+            !user
                 ? res.status(404).json({ message: "No User with that id Found"})
-                : res.status(304)
-                // Thought.deleteMany(
-                    // {} 
-                // )
+                : Thoughts.deleteMany({username: req.params.userid})
+        })
+        .then((thoughts)=>{
+            !thoughts
+            ? res.status(500).json({
+                message: "User Deleted, but no thoughts found :("
             })
-            // .then(()=>{res.json({message: "all thought deleted"})})
-            .catch((err) => res.json(err))
-        // BONUS remove user's associated thoughts when deleted
+            : res.json({ 
+                message: "User and their thoughts have been deleted"
+            })
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json(err);
+        })
     },
-
+      
 // /api/users/:userId/:friendId
 
     // POST to add new friend to a user's friend list
