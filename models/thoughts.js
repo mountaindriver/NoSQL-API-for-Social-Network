@@ -16,7 +16,6 @@ const thoughtsSchema = new Schema(
         username: {
             type: String,
             required: true,
-            // connect to user that created thought
         },
         reactions: [ reactionsSchema ]
     },

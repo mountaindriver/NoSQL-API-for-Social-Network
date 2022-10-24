@@ -42,12 +42,13 @@ module.exports = {
         User.findOneAndRemove({ _id: req.params.userid })
         .then((user) => {
             !user
-                ? res.status(404).json({ message: "No User with that id Found"})
+                ? res.status(404).json({ message: "No User found with that id"})
+                // *** NOT WORKING***
                 : Thoughts.deleteMany({username: req.params.userid})
         })
         .then((thoughts)=>{
             !thoughts
-            ? res.status(500).json({
+            ? res.status(404).json({
                 message: "User Deleted, but no thoughts found :("
             })
             : res.json({ 

@@ -1,26 +1,65 @@
+
 # NoSQL-API-for-Social-Network
-A API that is created using MongoDB and JavaScript.  The database uses Express.js and Mongoose as the ORM.  This is not a deployed website but there is a link to a walk through video in the README.
+  <!-- PROJECT LOGO -->
+  <br />
+  <div align="center">
+        <a href="https://github.com/mountaindriver/NoSQL-API-for-Social-Network">
+        </a>
+        <h3 align="center">NoSQL-API-for-Social-Network</h3>
+        <p align="center">
+        <br>
+        <a href="https://github.com/mountaindriver/NoSQL-API-for-Social-Network"><strong>Explore the docs »</strong></a>
+        <br />
+        <br />
+        </p>
+  </div>
+  
+  
+  <!-- TABLE OF CONTENTS -->
+  <details>
+    <summary>Table of Contents</summary>
+    <ol>
+      <li><a href='#description'>Description</a></li>
+      <li><a href='#usage'>Usage</a></li>
+      <li><a href='#contributing'>Contributing</a></li>
+      <li><a href='#Contact'>Contact</a></li>
+    </ol>
+  </details>
 
+  
+  ## Description
 
+  A API that is created using MongoDB and JavaScript.  The database uses Express.js and Mongoose as the ORM.  This is not a deployed website but there is a link to a walk through video in the README.
+  
+  
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## User Story
+  ## Usage
+  
+  The application is the backend Struture of a social network API. In order to use the software you will need VScode installed and pull this repository from git hub.  Then in a intergrated terminal enter 
+  
+  >npm i 
 
-```md
-AS A social media startup
-I WANT an API for my social network that uses a NoSQL database
-SO THAT my website can handle large amounts of unstructured data
-```
+  Then.
 
-## GIVEN WHEN THEN
+  >npm start
 
-```md
-GIVEN a social network API
-WHEN I enter the command to invoke the application
-THEN my server is started and the Mongoose models are synced to the MongoDB database
-WHEN I open API GET routes in Insomnia for users and thoughts
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully create, update, and delete users and thoughts in my database
-WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
-```
+  This will run the sever.
+    Then you can use Insomnia or another API Client to perform the CRUD opperatios.  The server is set up to use http://localhost:3001 followed by the route corresponding to the CRUD operation you wish to perform.  All is explianed in this (video)[www.]
+  
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
+  
+  
+  ## Contributing
+  
+  Lucas Freigenberg
+  
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
+  
+  
+  ## Questions
+  
+  If you have any question please feel free to reach me at eithr my at me Linkedin, Github, or Email.
+  <p align="left">Linkedin: <a href="#https://www.linkedin.com/in/lucas-freigenberg-539338134/">lucas-freigenberg</a></p>
+  <p align="left">Github: <a href="#https://github.com/mountaindriver">mountaindriver</a></p>
+  <p align="left">Email: <a href="#Lsfreigenberg@outlook.com">Lsfreigenberg@outlook.com</a></p>
