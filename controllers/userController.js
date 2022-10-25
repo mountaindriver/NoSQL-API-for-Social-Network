@@ -41,10 +41,9 @@ module.exports = {
     deleteUser(req, res) {
         User.findOneAndRemove({ _id: req.params.userid })
         .then((user) => {
-            !user
+           return !user
                 ? res.status(404).json({ message: "No User found with that id"})
-                // *** NOT WORKING***
-                : Thoughts.deleteMany({username: req.params.userid})
+                : Thoughts.deleteMany({_id: {$in: user.thoughts}})
         })
         .then((thoughts)=>{
             !thoughts

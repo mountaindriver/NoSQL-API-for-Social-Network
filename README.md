@@ -3,8 +3,8 @@
   <!-- PROJECT LOGO -->
   <br />
   <div align="center">
-        <a href="https://github.com/mountaindriver/NoSQL-API-for-Social-Network">
-        </a>
+        <a href="https://drive.google.com/file/d/1ncMBmkU6UY4Ez09s8cfrNk3VuPh4BfJm/view">
+        <strong>View Video</strong></a>
         <h3 align="center">NoSQL-API-for-Social-Network</h3>
         <p align="center">
         <br>
@@ -45,7 +45,7 @@
   >npm start
 
   This will run the sever.
-    Then you can use Insomnia or another API Client to perform the CRUD opperatios.  The server is set up to use http://localhost:3001 followed by the route corresponding to the CRUD operation you wish to perform.  All is explianed in this (video)[www.]
+    Then you can use Insomnia or another API Client to perform the CRUD opperatios.  The server is set up to use http://localhost:3001 followed by the route corresponding to the CRUD operation you wish to perform.  All is explianed in this (video)[https://drive.google.com/file/d/1ncMBmkU6UY4Ez09s8cfrNk3VuPh4BfJm/view]
   
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
